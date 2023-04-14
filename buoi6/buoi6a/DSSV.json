@@ -1,0 +1,268 @@
+﻿[
+    {
+        "codeStudent": "21661069",
+        "name": "Trần Phạm Tuấn Anh",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "06/10/2003"
+    },
+    {
+        "codeStudent": "21662020",
+        "name": "Nguyễn Chí Bảo",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "23/06/2003"
+    },
+    {
+        "codeStudent": "21661037",
+        "name": "Phan Hoài Bảo",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "22/06/2003"
+    },
+    {
+        "codeStudent": "21661045",
+        "name": "Nguyễn Gia Đạt",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "15/07/2003"
+    },
+    {
+        "codeStudent": "21662036",
+        "name": "Mai Ngọc Đức",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "11/03/2003"
+    },
+    {
+        "codeStudent": "21662031",
+        "name": "NGUYỄN ĐẶNG THANH DUY",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "23/11/2003"
+    },
+    {
+        "codeStudent": "21661072",
+        "name": "Đỗ Lê Kỳ Duyên",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "07/02/2003"
+    },
+    {
+        "codeStudent": "21662005",
+        "name": "Phạm Nguyễn Hồng Hải",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "19/10/2003"
+    },
+    {
+        "codeStudent": "21662007",
+        "name": "Tạ Thị Ngọc Hân",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "23/08/2001"
+    },
+    {
+        "codeStudent": "21661050",
+        "name": "Võ Thị Xuân Hoa",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "07/07/2002"
+    },
+    {
+        "codeStudent": "21662006",
+        "name": "Ngô Tấn Hưng",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "02/01/1999"
+    },
+    {
+        "codeStudent": "21662013",
+        "name": "Hồ Khắc Huy",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "24/05/2003"
+    },
+    {
+        "codeStudent": "21662016",
+        "name": "Nguyễn Quốc Huy",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "14/10/2003"
+    },
+    {
+        "codeStudent": "21661044",
+        "name": "Lê Quốc Khánh",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "12/04/2003"
+    },
+    {
+        "codeStudent": "21661094",
+        "name": "ĐỖ ĐĂNG KHOA",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "16/02/2003"
+    },
+    {
+        "codeStudent": "21662008",
+        "name": "Trần Ngọc Khoa",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "28/07/2002"
+    },
+    {
+        "codeStudent": "21661031",
+        "name": "Nguyễn Hồng Lạc",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "24/08/2003"
+    },
+    {
+        "codeStudent": "21662009",
+        "name": "Nguyễn Võ Điền Lâm",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "03/09/2003"
+    },
+    {
+        "codeStudent": "21662004",
+        "name": "PHẠM TẤN LỘC",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "18/04/2003"
+    },
+    {
+        "codeStudent": "21662015",
+        "name": "Lê Tấn Lực",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "02/04/2003"
+    },
+    {
+        "codeStudent": "21661034",
+        "name": "Trần Ngọc Nam",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "31/07/2002"
+    },
+    {
+        "codeStudent": "21661060",
+        "name": "Võ Thị Thúy Ngân",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "26/10/2003"
+    },
+    {
+        "codeStudent": "21662018",
+        "name": "Phan Thanh Nghĩa",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "21/05/2003"
+    },
+    {
+        "codeStudent": "21661049",
+        "name": "Phạm Thị Thu Nhị",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "26/03/2003"
+    },
+    {
+        "codeStudent": "21661035",
+        "name": "Nguyễn Thị Mỹ Nhung",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "03/04/2003"
+    },
+    {
+        "codeStudent": "21662027",
+        "name": "Nguyễn Tấn Phát",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "19/09/2003"
+    },
+    {
+        "codeStudent": "21661029",
+        "name": "Đỗ Ngọc Quang",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "12/10/2000"
+    },
+    {
+        "codeStudent": "21662034",
+        "name": "Nguyễn Văn Sang",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "03/09/2002"
+    },
+    {
+        "codeStudent": "21662011",
+        "name": "Phạm Nhật Tân",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "02/11/2003"
+    },
+    {
+        "codeStudent": "21662028",
+        "name": "Trần Nguyễn Minh Thăng",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "17/11/2003"
+    },
+    {
+        "codeStudent": "21661054",
+        "name": "Hoàng Chí Thanh",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "17/05/2003"
+    },
+    {
+        "codeStudent": "21661076",
+        "name": "NGUYỄN KIM NGỌC THÍCH",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "04/11/2003"
+    },
+    {
+        "codeStudent": "21662024",
+        "name": "CHÂU LÊ HOÀI THOẠI",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "09/11/2003"
+    },
+    {
+        "codeStudent": "21661024",
+        "name": "Nguyễn Quốc Thuận",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "24/10/2003"
+    },
+    {
+        "codeStudent": "21662002",
+        "name": "Nguyễn Chánh Tín",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "01/06/2003"
+    },
+    {
+        "codeStudent": "21661006",
+        "name": "Nguyễn Phát Triều",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "24/02/2003"
+    },
+    {
+        "codeStudent": "21662010",
+        "name": "Đinh Lương Vĩnh Tú",
+        "class": "17CSI01",
+        "gender": "Nam",
+        "birthday": "10/11/2003"
+    },
+    {
+        "codeStudent": "21662026",
+        "name": "Bùi Thị Tường Vy",
+        "class": "17CSI01",
+        "gender": "Nữ",
+        "birthday": "22/10/2000"
+    }
+]
