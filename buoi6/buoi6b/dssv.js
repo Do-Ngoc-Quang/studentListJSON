@@ -165,20 +165,24 @@ function updateStudent() {
 }
 
 function deleteStudent(mssv) {
-  console.log(mssv);
-  const confirmDelete = confirm("Are you sure you want to delete this student?");
-  if (confirmDelete) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('DELETE', 'http://localhost:3000/students/' + mssv);
-    xhr.send();
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        console.log(xhr.responseText);
-        // Refresh the page or update the student list
-      }
-    }
-  }
+  if(confirm("Bạn có chắc chắn muốn xóa không?")){
+    $.ajax({
+        method: "DELETE",
+        url: "http://localhost:3000/students",
+        data: {
+            "MaSV": mssv,
+        }
+    })
+        .done(function (res) {
+            if(res.success) {
+                alert(res.msg);
+                getStudents();
+            }
+            else alert(res.msg);
+        }).fail(function (jqXHR, textStatus, errorThrown) { console.log(textStatus) });
 }
+}
+
 
 
 
