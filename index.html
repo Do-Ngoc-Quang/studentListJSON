@@ -55,8 +55,9 @@
             </tr>
           </thead>
           <tbody id="tbodySV">
-            <input type="text" id="myInput">
-            <button onclick="myFunction()">Get value</button>
+            
+          
+            
           </tbody>
           <!-- Modul edit Student -->
           <div id="modalEdit" class="modal">
@@ -73,40 +74,40 @@
                   <div class="form-group row mb-3">
                     <label for="txtCode" class="col-sm-2 col-form-label">Code</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="txtCode" value="" placeholder="Code of Student">
+                      <input type="text" class="form-control" id="txtCodeEdit">
                     </div>
                   </div>
                   <div class="form-group row mb-3">
                     <label for="txtName" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="txtName" value="" placeholder="Name of Student">
+                      <input type="text" class="form-control" id="txtNameEdit">
                     </div>
                   </div>
                   <div class="form-group row mb-3">
                     <label for="txtClass" class="col-sm-2 col-form-label">Class</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="txtClass" value="" placeholder="Class of Student">
+                      <input type="text" class="form-control" id="txtClassEdit">
                     </div>
                   </div>
                   <div class="form-group row mb-3">
-                    <label for="txtBirthday" class="col-sm-2 col-form-label">Birthday</label>
+                    <label for="txtClass" class="col-sm-2 col-form-label">Birthday</label>
                     <div class="col-sm-10">
                       <div class="control">
-                        <input type="text" class="form-control datetimepicker" name="date" id="date">
+                        <input type="text" class="form-control datetimepicker" name="date" id="dateEdit">
                       </div>
                     </div>
                   </div>
-
+      
                   <div class="form-group row">
                     <label for="txtGender" class="col-sm-2 col-form-label">Gender</label>
                     <div class="col-sm-10">
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
-                        <label class="form-check-label" for="male">Male</label>
+                        <label class="form-check-label" for="male">Nam</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
-                        <label class="form-check-label" for="female">Female</label>
+                        <label class="form-check-label" for="female">Nữ</label>
                       </div>
                     </div>
                   </div>
@@ -144,26 +145,26 @@
             <div class="form-group row mb-3">
               <label for="txtCode" class="col-sm-2 col-form-label">Code</label>
               <div class="col-sm-10">
-                <input type="text"  id="txtCode" placeholder="Code of Student">
+                <input type="text" class="form-control" id="txtCodeAdd">
               </div>
             </div>
             <div class="form-group row mb-3">
               <label for="txtName" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtName" placeholder="Name of Student">
+                <input type="text" class="form-control" id="txtNameAdd">
               </div>
             </div>
             <div class="form-group row mb-3">
               <label for="txtClass" class="col-sm-2 col-form-label">Class</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtClass" placeholder="Class of Student">
+                <input type="text" class="form-control" id="txtClassAdd">
               </div>
             </div>
             <div class="form-group row mb-3">
               <label for="txtClass" class="col-sm-2 col-form-label">Birthday</label>
               <div class="col-sm-10">
                 <div class="control">
-                  <input type="text" class="form-control datetimepicker" name="date" id="date">
+                  <input type="text" class="form-control datetimepicker" name="date" id="dateAdd">
                 </div>
               </div>
             </div>
@@ -173,16 +174,15 @@
               <div class="col-sm-10">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
-                  <label class="form-check-label" for="male">Male</label>
+                  <label class="form-check-label" for="male">Nam</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
-                  <label class="form-check-label" for="female">Female</label>
+                  <label class="form-check-label" for="female">Nữ</label>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <!-- <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
               <button type="reset" class="btn btn-info">Reset</button>
               <button type="button" class="btn btn-primary" onclick="addStudent()">Add Student</button>
             </div>

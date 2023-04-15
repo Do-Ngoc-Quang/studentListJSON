@@ -9,6 +9,11 @@ const port = 3000;
 
 const dssv = require('./DSSV1.json');
 
+const bodyParser = require('body-parser');
+var urlParser = bodyParser.urlencoded({ extended: false });
+// app.use(bodyParser.json());
+
+
 app.get('/', (req, res) => {
     res.send('Welecome to EXPRESS backend!!');
 });
@@ -34,29 +39,13 @@ app.get('/students/:mssv', (req, res) => {
 });
 
 // POST
-app.post('/students', (req, res) => {
-
-    // if (req.method === 'POST' && req.url === '/students') {
-    //     let body = '';
-    //     req.on('data', chunk => {
-    //         body += chunk.toString();
-    //     });
-    //     req.on('end', () => {
-    //         try {
-    //             const newStudent = JSON.parse(body);
-    //             studentList.push(newStudent);
-    //             res.statusCode = 201;
-    //             res.setHeader('Content-Type', 'application/json');
-    //             res.end(JSON.stringify(newStudent));
-    //         } catch (error) {
-    //             res.statusCode = 400;
-    //             return res.end(`Error: ${error.message}`);
-    //         }
-    //     });
-    // }
-
-
+app.post("/addstudents", urlParser, (req, res) => {
+    var sv = req.body;
+    var result = dssv.find(item => item.MaSV === sv.MaSV);
+    console.log(result);
+    res.send(req.body);
 });
+
 
 app.put('/students', (req, res) => {
     res.send('PUT students!!');
@@ -64,13 +53,13 @@ app.put('/students', (req, res) => {
 app.delete('/students/:mssv', (req, res) => {
     const studentCode = req.params.mssv;
     const students = require('./DSSV1.json');
-  
+
     const updatedStudents = students.filter(student => student.mssv !== studentCode);
-  
+
     fs.writeFile('./DSSV1.json', JSON.stringify(updatedStudents), (err) => {
-      if (err) throw err;
-      res.status(200).send(`Student with ID ${studentCode} deleted successfully!`);
+        if (err) throw err;
+        res.status(200).send(`Student with ID ${studentCode} deleted successfully!`);
     });
-  });
-  
+});
+
 app.listen(port, () => console.log(`App is running at port ${port}`));
