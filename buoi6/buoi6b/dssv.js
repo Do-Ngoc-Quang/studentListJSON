@@ -8,62 +8,60 @@ $(function () {
 
 
 function getStudents() {
-  // fetch("http://localhost:3000/students")
-  //     .then(res => {
-  //         return res.json();
-  //     })
-  //     .then(data => {
-  //         lst = [];
-  //         data.forEach((dssv, i) => {
-  //             dssv.STT = i + 1;
-  //             lst.push(dssv);
-  //         });
-
-  //         if (lst.length > 0) {
-  //             $("#tbodySV").html("");
-  //             $("#dssvTemplate").tmpl(lst).appendTo("#tbodySV");
-  //         }
-  //         else {
-  //             let str = "<caption>No data fond!</caption>";
-  //             $("#tbodySV").html(str);
-  //         }
-  //     })
-  //     .catch(err => {
-  //         let str = "<caption>Error ...</caption>";
-  //         $("#tbodySV").html(str);
-  //     });
-
-  let students = [];
   fetch("http://localhost:3000/students")
-    .then(res => res.json())
+    .then(res => { return res.json(); })
     .then(data => {
-      lst = data;
+      lst = [];
+      let i = 1;
+      data.forEach(sv => {
+        sv.STT = i++;
+        lst.push(sv);
+      });
       if (lst.length > 0) {
-        let tbody = $("#tbodySV");
-        tbody.empty();
-        lst.forEach((dssv, i) => {
-          let row = $("<tr></tr>");
-          row.append($(`<td>${i + 1}</td>`));
-          row.append($(`<td>${dssv.codeStudent}</td>`));
-          row.append($(`<td>${dssv.name}</td>`));
-          row.append($(`<td>${dssv.class}</td>`));
-          row.append($(`<td>${dssv.gender}</td>`));
-          row.append($(`<td>${dssv.birthday}</td>`));
-          row.append($(`<td>
-                          <button class="btn-sm btn-info" onclick="openModal(${dssv.codeStudent}, ${i})">Edit</button>
-                          <button class="btn-sm btn-danger" onclick="deleteStudent(${dssv.codeStudent})">Delete</button>
-                        </td>`));
-
-          tbody.append(row);
-        });
-      } else {
-        $("#tbodySV").html("<caption>No data found!</caption>");
+        $("#tbodySV").html("");
+        $("#svTemplate").tmpl(lst).appendTo("#tbodySV");
+      }
+      else {
+        str = "<caption>No DATA FOUND</caption>"
+        $("#tbodySV").html(str);
       }
     })
     .catch(err => {
-      $("#tbodySV").html("<caption>Error fetching data!</caption>");
-      console.error(err);
-    });
+      str = "<caption>ERROR .....</caption>"
+      $("#tbodySV").html(str);
+    })
+
+  // let students = [];
+  // fetch("http://localhost:3000/students")
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     lst = data;
+  //     if (lst.length > 0) {
+  //       let tbody = $("#tbodySV");
+  //       tbody.empty();
+  //       lst.forEach((dssv, i) => {
+  //         let row = $("<tr></tr>");
+  //         row.append($(`<td>${i + 1}</td>`));
+  //         row.append($(`<td>${dssv.codeStudent}</td>`));
+  //         row.append($(`<td>${dssv.name}</td>`));
+  //         row.append($(`<td>${dssv.class}</td>`));
+  //         row.append($(`<td>${dssv.gender}</td>`));
+  //         row.append($(`<td>${dssv.birthday}</td>`));
+  //         row.append($(`<td>
+  //                         <button class="btn-sm btn-info" onclick="openModal(${dssv.codeStudent}, ${i})">Edit</button>
+  //                         <button class="btn-sm btn-danger" onclick="deleteStudent(${dssv.codeStudent})">Delete</button>
+  //                       </td>`));
+
+  //         tbody.append(row);
+  //       });
+  //     } else {
+  //       $("#tbodySV").html("<caption>No data found!</caption>");
+  //     }
+  //   })
+  //   .catch(err => {
+  //     $("#tbodySV").html("<caption>Error fetching data!</caption>");
+  //     console.error(err);
+  //   });
 }
 
 function openModal(mssv, index) {
@@ -77,15 +75,15 @@ function openModal(mssv, index) {
         if (i === index) {
           console.log(student);
           document.querySelector("#currentID").value = index;
-          document.querySelector("#txtCodeEdit").value = student.codeStudent;
-          document.querySelector("#txtNameEdit").value = student.name;
-          document.querySelector("#txtClassEdit").value = student.class;
-          document.querySelector("#dateEdit").value = student.birthday;
+          document.querySelector("#txtCodeEdit").value = student.MaSV;
+          document.querySelector("#txtNameEdit").value = student.HoTen;
+          document.querySelector("#txtClassEdit").value = student.Lop;
+          document.querySelector("#dateEdit").value = student.NgaySinh;
 
-          if (student.gender === "Nam") {
+          if (student.GioiTinh === "Nam") {
             document.querySelector('#male').checked = true;
           }
-          if (student.gender === "Nữ") {
+          if (student.GioiTinh === "Nữ") {
             document.querySelector('#female').checked = true;
           }
 
@@ -122,61 +120,66 @@ function openModal(mssv, index) {
 }
 
 function addStudent() {
-  var txtCode = document.getElementById("txtCodeAdd").value;
-  var txtName = document.getElementById("txtNameAdd").value;
-  var txtClass = document.getElementById("txtClassAdd").value;
-  var date = document.getElementById("dateAdd").value;
-  let gender = document.querySelector('input[name="gender"]:checked').value;
 
-  console.log(txtCode);
-  console.log(txtName);
-  console.log(txtClass);
-  console.log(date);
-  console.log(gender);
-
-  var formData = {
-    code: txtCode,
-    name: txtName,
-    class: txtClass,
-    birthday: date,
-    gender: gender
-  };
-
+  gt = $('input[name="gender"]:checked').val();
   $.ajax({
-    type: "POST",
-    url: "/http://localhost:3000/addstudents",
-    data: JSON.stringify(formData),
-    contentType: "application/json",
-    dataType: "json",
-    success: function (data) {
-      console.log(data);
-      alert("New student added successfully!");
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.error(textStatus, errorThrown);
-      alert("Error adding new student!");
+    method: "POST",
+    url: "http://localhost:3000/students",
+    data: {
+      "MaSV": $("#txtCodeAdd").val(),
+      "HoTen": $("#txtNameAdd").val(),
+      "Lop": $("#txtClassAdd").val(),
+      "GioiTinh": gt,
+      "NgaySinh": $("#dateAdd").val(),
     }
-  });
+  })
+    .done(function (res) {
+      if (res.success) alert(res.msg);
+      else alert(res.msg);
+    }).fail(function (jqXHR, textStatus, errorThrown) { console.log(textStatus) });
 
 }
 
 
+function updateStudent() {
+  var gt = $('input[name="genderEdit"]:checked').val();
+  var data = {
+    "MaSV": $("#txtCodeEdit").val(),
+    "HoTen": $("#txtNameEdit").val(),
+    "Lop": $("#txtClassEdit").val(),
+    "GioiTinh": gt,
+    "NgaySinh": $("#dateEdit").val(),
+  };
+  var studentCode = $("#txtCodeEdit").val();
+  console.log(studentCode);
+  $.ajax({
+    method: "PUT",
+    url: "http://localhost:3000/students/" + studentCode,
+    data: data
+  })
+    .done(function (res) {
+      if (res.success) alert(res.msg);
+      else alert("Update student success");
+    }).fail(function (jqXHR, textStatus, errorThrown) { console.log(textStatus) });
 
-function deleteStudent(codeStudent) {
+}
+
+function deleteStudent(mssv) {
+  console.log(mssv);
   const confirmDelete = confirm("Are you sure you want to delete this student?");
   if (confirmDelete) {
     var xhr = new XMLHttpRequest();
-    xhr.open('DELETE', 'http://localhost:3000/students/' + codeStudent);
+    xhr.open('DELETE', 'http://localhost:3000/students/' + mssv);
     xhr.send();
-    xhr.onload = function() {
+    xhr.onload = function () {
       if (xhr.status === 200) {
         console.log(xhr.responseText);
         // Refresh the page or update the student list
       }
     }
   }
-
 }
+
 
 
 

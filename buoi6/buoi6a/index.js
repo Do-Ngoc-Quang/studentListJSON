@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const cors = require("cors");
 const app = express();
 let corsOptions = {
@@ -18,10 +19,13 @@ app.get('/', (req, res) => {
     res.send('Welecome to EXPRESS backend!!');
 });
 
+
 //GET 
 app.get('/students', (req, res) => {
     res.send(Object.values(dssv));
 });
+
+
 app.get('/students/:mssv', (req, res) => {
     console.log(req.params.mssv);
     let i = 0;
@@ -38,28 +42,77 @@ app.get('/students/:mssv', (req, res) => {
     }
 });
 
-// POST
-app.post("/addstudents", urlParser, (req, res) => {
+
+//POST Add new student
+app.post("/students", urlParser, (req, res) => {
     var sv = req.body;
     var result = dssv.find(item => item.MaSV === sv.MaSV);
     console.log(result);
-    res.send(req.body);
+    if (result != null || result != undefined) {
+        var obj = {
+            success: false, msg: "Mã SV bị trùng!"
+        };
+        res.send(obj);
+    }
+    else {
+        dssv.push(sv);
+        fs.writeFile('DSSV1.json', JSON.stringify(dssv), err => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log("OK");
+            }
+        });
+
+        var obj = {
+            success: true, msg: "Add new student success!"
+        };
+        res.send(obj);
+    }
+
 });
 
 
-app.put('/students', (req, res) => {
-    res.send('PUT students!!');
-});
-app.delete('/students/:mssv', (req, res) => {
-    const studentCode = req.params.mssv;
-    const students = require('./DSSV1.json');
+app.put('/students/:mssv', urlParser, (req, res) => {
+    const mssv = req.params.mssv; // get the mssv from the URL parameter
+    const updatedStudent = req.body; // get the updated student data from the request body
+  
+    // Find the index of the student with the specified mssv value
+    const index = dssv.findIndex(student => student.MaSV === mssv);
+    console.log(index);
+    if (index === -1) {
+      // If the student is not found, send a 404 response
+      res.status(404).send('Student not found');
+    } else {
+      // Update the properties of the student object at the specified index
+      dssv[index].HoTen = updatedStudent.HoTen;
+      dssv[index].Lop = updatedStudent.Lop;
+      dssv[index].GioiTinh = updatedStudent.GioiTinh;
+      dssv[index].NgaySinh = updatedStudent.NgaySinh;
+  
+      // Write the updated data to the JSON file
+      fs.writeFile('DSSV1.json', JSON.stringify(dssv), err => {
+        if (err) {
+          console.log(err);
+          res.status(500).send('Server error');
+        } else {
+          res.send('Student updated successfully');
+        }
+      });
+    }
+  });
+  
 
-    const updatedStudents = students.filter(student => student.mssv !== studentCode);
 
+app.delete('/students/:id', (req, res) => {
+    const studentId = req.params.MaSV;
+    const updatedStudents = students.filter(student => student.MaSV !== studentId);
     fs.writeFile('./DSSV1.json', JSON.stringify(updatedStudents), (err) => {
         if (err) throw err;
-        res.status(200).send(`Student with ID ${studentCode} deleted successfully!`);
+        res.status(200).send(`Student with ID ${studentId} deleted successfully!`);
     });
 });
+
 
 app.listen(port, () => console.log(`App is running at port ${port}`));

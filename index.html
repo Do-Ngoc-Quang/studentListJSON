@@ -55,9 +55,9 @@
             </tr>
           </thead>
           <tbody id="tbodySV">
-            
-          
-            
+
+
+
           </tbody>
           <!-- Modul edit Student -->
           <div id="modalEdit" class="modal">
@@ -74,7 +74,7 @@
                   <div class="form-group row mb-3">
                     <label for="txtCode" class="col-sm-2 col-form-label">Code</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="txtCodeEdit">
+                      <input type="text" class="form-control" id="txtCodeEdit" readonly>
                     </div>
                   </div>
                   <div class="form-group row mb-3">
@@ -93,20 +93,20 @@
                     <label for="txtClass" class="col-sm-2 col-form-label">Birthday</label>
                     <div class="col-sm-10">
                       <div class="control">
-                        <input type="text" class="form-control datetimepicker" name="date" id="dateEdit">
+                        <input type="text" class="form-control datetimepicker" name="date" id="dateEdit" >
                       </div>
                     </div>
                   </div>
-      
+
                   <div class="form-group row">
                     <label for="txtGender" class="col-sm-2 col-form-label">Gender</label>
                     <div class="col-sm-10">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                        <input class="form-check-input" type="radio" name="genderEdit" id="male" value="Nam">
                         <label class="form-check-label" for="male">Nam</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                        <input class="form-check-input" type="radio" name="genderEdit" id="female" value="Nữ">
                         <label class="form-check-label" for="female">Nữ</label>
                       </div>
                     </div>
@@ -114,7 +114,7 @@
                   <div class="modal-footer">
                     <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="reset" class="btn btn-info">Reset</button>
-                    <button type="submit" class="btn btn-primary">Save change</button>
+                    <button type="button" class="btn btn-primary" onclick="updateStudent()">Save change</button>
                   </div>
                 </form>
               </div>
@@ -129,7 +129,7 @@
       <p class="mb-1">&copy; 2021–2023 Design by <a href="https://github.com/Do-Ngoc-Quang">Quang</a></p>
     </footer>
   </div>
-  <!-- Modal -->
+  <!-- Modal add new student-->
   <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -173,11 +173,11 @@
               <label for="txtGender" class="col-sm-2 col-form-label">Gender</label>
               <div class="col-sm-10">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                  <input class="form-check-input" type="radio" name="gender" id="male" value="Nam">
                   <label class="form-check-label" for="male">Nam</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                  <input class="form-check-input" type="radio" name="gender" id="female" value="Nữ">
                   <label class="form-check-label" for="female">Nữ</label>
                 </div>
               </div>
@@ -204,20 +204,20 @@
   <script src="buoi6/buoi6b/form-validation.js"></script>
   <script src="buoi6/buoi6b/dssv.js"></script>
 
-  <!-- <script id="dssvTemplate" type="text/x-jQuery-tmpl">
+  <script id="svTemplate" type="text/x-jQuery-tmpl">
     <tr>
       <th scope="row">${STT}</th>
-      <td>${codeStudent}</td>
-      <td>${name}</td>
-      <td>${class}</td>
-      <td>${gender}</td>
-      <td>${birthday}</td>
+      <td>${MaSV}</td>
+      <td>${HoTen}</td>
+      <td>${Lop}</td>
+      <td>${GioiTinh}</td>
+      <td>${NgaySinh}</td>
       <td>
-        <button class="btn-sm btn-info">Edit</button>
-        <button class="btn-sm btn-danger">Delete</button>
+        <button class="btn-sm btn-info" onclick="openModal(${MaSV}, ${STT-1})">Edit</button>
+        <button class="btn-sm btn-danger" onclick="deleteStudent(${MaSV})">Delete</button>
       </td>
     </tr>
-  </script> -->
+  </script>
   <script>
     $(document).ready(function () {
       $('.datetimepicker').datepicker({
