@@ -85,10 +85,10 @@ function openModal(mssv, index) {
 
         let genderRadios = document.getElementsByName("gender");
         genderRadios.forEach(radio => {
-          if (radio.value === student.gender && student.gender=="Nam") {
+          if ( student.gender=="Nam") {
             radio.checked = true;
           }
-          if (radio.value === student.gender && student.gender=="Nữ") {
+          if ( student.gender=="Nữ") {
             radio.checked = true;
           }
         });
@@ -127,6 +127,53 @@ function openModal(mssv, index) {
 
 }
 
+function myFunction() {
+  var inputValue = document.getElementById("myInput").value;
+  console.log(inputValue);
+  alert("The input value is: " + inputValue);
+}
+
+function addStudent() {
+  // Get the input values from the form
+  var code = document.getElementById("txtCode").value;
+  let name = document.getElementById("txtName").value;
+  let studentClass = document.getElementById("txtClass").value;
+  // let birthday = document.getElementById("date").value;
+  let gender = document.querySelector('input[name="gender"]:checked').value;
+
+console.log(code);
+console.log(name);
+console.log(studentClass);
+// console.log(birthday);
+console.log(gender);
+
+  // // Create a new student object
+  // let newStudent = {
+  //   code: code,
+  //   name: name,
+  //   class: studentClass,
+  //   birthday: birthday,
+  //   gender: gender
+  // };
+
+  // // Read the existing JSON data
+  // let data = JSON.parse(localStorage.getItem("students"));
+
+  // // Add the new student to the data array
+  // data.push(newStudent);
+
+  // // Save the updated data back to local storage
+  // localStorage.setItem("students", JSON.stringify(data));
+
+  // // Reset the form
+  // document.getElementById("add-student-form").reset();
+
+  // // Close the modal
+  // $('#addStudent').modal('hide');
+
+  // // Reload the student list
+  // loadStudents();
+}
 
 
 function deleteStudent(mssv, index) {

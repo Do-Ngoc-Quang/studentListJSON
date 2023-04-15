@@ -11,6 +11,8 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
 
+
+
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="buoi6/buoi6b/assets/dist/css/jquery-ui.css">
   <link href="buoi6/buoi6b/form-validation.css" rel="stylesheet">
@@ -18,9 +20,10 @@
   <!-- Bootstrap core CSS -->
   <link href="buoi6/buoi6b/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Datetimepicker -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+  <!-- Datetimepicker -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
     rel="stylesheet">
+
 </head>
 
 <body class="bg-light">
@@ -52,7 +55,8 @@
             </tr>
           </thead>
           <tbody id="tbodySV">
-
+            <input type="text" id="myInput">
+            <button onclick="myFunction()">Get value</button>
           </tbody>
           <!-- Modul edit Student -->
           <div id="modalEdit" class="modal">
@@ -140,19 +144,19 @@
             <div class="form-group row mb-3">
               <label for="txtCode" class="col-sm-2 col-form-label">Code</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtCode" value="" placeholder="Code of Student">
+                <input type="text"  id="txtCode" placeholder="Code of Student">
               </div>
             </div>
             <div class="form-group row mb-3">
               <label for="txtName" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtName" value="" placeholder="Name of Student">
+                <input type="text" class="form-control" id="txtName" placeholder="Name of Student">
               </div>
             </div>
             <div class="form-group row mb-3">
               <label for="txtClass" class="col-sm-2 col-form-label">Class</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtClass" value="" placeholder="Class of Student">
+                <input type="text" class="form-control" id="txtClass" placeholder="Class of Student">
               </div>
             </div>
             <div class="form-group row mb-3">
@@ -175,16 +179,12 @@
                   <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
                   <label class="form-check-label" for="female">Female</label>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="gender" id="other" value="Other">
-                  <label class="form-check-label" for="other">Other</label>
-                </div>
               </div>
             </div>
             <div class="modal-footer">
               <!-- <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
               <button type="reset" class="btn btn-info">Reset</button>
-              <button type="submit" class="btn btn-primary" onclick="addStudent()">Add Student</button>
+              <button type="button" class="btn btn-primary" onclick="addStudent()">Add Student</button>
             </div>
           </form>
         </div>
@@ -198,9 +198,13 @@
   <script src="buoi6/buoi6b/assets/dist/js/jquery.tmpl.js"></script>
   <script src="buoi6/buoi6b/assets/dist/js/bootstrap.bundle.min.js"></script>
 
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
   <script src="buoi6/buoi6b/form-validation.js"></script>
   <script src="buoi6/buoi6b/dssv.js"></script>
-  <script id="dssvTemplate" type="text/x-jQuery-tmpl">
+
+  <!-- <script id="dssvTemplate" type="text/x-jQuery-tmpl">
     <tr>
       <th scope="row">${STT}</th>
       <td>${codeStudent}</td>
@@ -213,7 +217,7 @@
         <button class="btn-sm btn-danger">Delete</button>
       </td>
     </tr>
-  </script>
+  </script> -->
   <script>
     $(document).ready(function () {
       $('.datetimepicker').datepicker({
