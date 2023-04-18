@@ -12,7 +12,6 @@ const dssv = require('./DSSV1.json');
 
 const bodyParser = require('body-parser');
 var urlParser = bodyParser.urlencoded({ extended: false });
-// app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
